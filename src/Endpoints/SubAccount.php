@@ -7,12 +7,12 @@ use DataMat\VoPay\Traits\Credentials;
 use DataMat\VoPay\Traits\Endpoint;
 
 /**
- * @method \Psr\Http\Message\StreamInterface postSubaccount(array $payload)
- * @method \Psr\Http\Message\StreamInterface getSubaccount(?array $payload = [])
- * @method \Psr\Http\Message\StreamInterface subaccountSubmitExtendedInfo(array $payload)
- * @method \Psr\Http\Message\StreamInterface getSubaccountShareholderInfo(array $payload)
- * @method \Psr\Http\Message\StreamInterface subaccountExtendedInfo(?array $payload = [])
- * @method \Psr\Http\Message\StreamInterface subaccountSetPermissions(?array $payload = [])
+ * @method array postSubaccount(array $payload)
+ * @method array getSubaccount(?array $payload = [])
+ * @method array subaccountSubmitExtendedInfo(array $payload)
+ * @method array getSubaccountShareholderInfo(array $payload)
+ * @method array subaccountExtendedInfo(?array $payload = [])
+ * @method array subaccountSetPermissions(?array $payload = [])
  */
 class SubAccount implements VoPayContractEndpoint
 {
@@ -92,15 +92,15 @@ class SubAccount implements VoPayContractEndpoint
 
     /**
      * @param array $payload
-     * @param string|null $documentId
+     * @param string|null $shareolderId
      *
-     * @return \Psr\Http\Message\StreamInterface
+     * @return array
      * @throws \DataMat\VoPay\Exceptions\InvalidEndpoint
      * @throws \DataMat\VoPay\Exceptions\InvalidPayload
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function postSubaccountShareholderInfo(array $payload, ?string $shareolderId = '') : \Psr\Http\Message\StreamInterface
+    public function postSubaccountShareholderInfo(array $payload, ?string $shareolderId = '') : array
     {
-        return $this->sendRequest('post-subaccount-shareholder-info', $payload, ['{ShareolderID}' => $shareolderId]);
+        return $this->singleCall('post-subaccount-shareholder-info', ['{ShareolderID}' => $shareolderId], $payload);
     }
 }

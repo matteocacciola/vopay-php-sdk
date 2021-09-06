@@ -7,9 +7,9 @@ use DataMat\VoPay\Traits\Credentials;
 use DataMat\VoPay\Traits\Endpoint;
 
 /**
- * @method \Psr\Http\Message\StreamInterface postAccount(array $payload)
- * @method \Psr\Http\Message\StreamInterface getAccount(?array $payload = [])
- * @method \Psr\Http\Message\StreamInterface setPermissions(?array $payload = [])
+ * @method array postAccount(array $payload)
+ * @method array getAccount(?array $payload = [])
+ * @method array setPermissions(?array $payload = [])
  */
 class Partner implements VoPayContractEndpoint
 {

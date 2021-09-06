@@ -7,17 +7,17 @@ use DataMat\VoPay\Traits\Credentials;
 use DataMat\VoPay\Traits\Endpoint;
 
 /**
- * @method \Psr\Http\Message\StreamInterface fund(array $payload)
- * @method \Psr\Http\Message\StreamInterface fundStatus(array $payload)
- * @method \Psr\Http\Message\StreamInterface fundTransaction(array $payload)
- * @method \Psr\Http\Message\StreamInterface fundSchedule(array $payload)
- * @method \Psr\Http\Message\StreamInterface fundScheduleCancel(array $payload)
- * @method \Psr\Http\Message\StreamInterface fundScheduleEdit(array $payload)
- * @method \Psr\Http\Message\StreamInterface scheduledTransactions(array $payload)
- * @method \Psr\Http\Message\StreamInterface withdraw(array $payload)
- * @method \Psr\Http\Message\StreamInterface withdrawTransaction(array $payload)
- * @method \Psr\Http\Message\StreamInterface withdrawStatus(array $payload)
- * @method \Psr\Http\Message\StreamInterface failures(array $payload)
+ * @method array fund(array $payload)
+ * @method array fundStatus(array $payload)
+ * @method array fundTransaction(array $payload)
+ * @method array fundSchedule(array $payload)
+ * @method array fundScheduleCancel(array $payload)
+ * @method array fundScheduleEdit(array $payload)
+ * @method array scheduledTransactions(array $payload)
+ * @method array withdraw(array $payload)
+ * @method array withdrawTransaction(array $payload)
+ * @method array withdrawStatus(array $payload)
+ * @method array failures(array $payload)
  */
 class ElectronicFundsTransfer implements VoPayContractEndpoint
 {

@@ -7,10 +7,10 @@ use DataMat\VoPay\Traits\Credentials;
 use DataMat\VoPay\Traits\Endpoint;
 
 /**
- * @method \Psr\Http\Message\StreamInterface generateEmbedUrl(array $payload)
- * @method \Psr\Http\Message\StreamInterface pushFunds(array $payload)
- * @method \Psr\Http\Message\StreamInterface pushFundsTransaction(array $payload)
- * @method \Psr\Http\Message\StreamInterface cardInfo(array $payload)
+ * @method array generateEmbedUrl(array $payload)
+ * @method array pushFunds(array $payload)
+ * @method array pushFundsTransaction(array $payload)
+ * @method array cardInfo(array $payload)
  */
 class VisaDirect implements VoPayContractEndpoint
 {

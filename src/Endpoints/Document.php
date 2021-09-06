@@ -7,7 +7,7 @@ use DataMat\VoPay\Traits\Credentials;
 use DataMat\VoPay\Traits\Endpoint;
 
 /**
- * @method \Psr\Http\Message\StreamInterface postDocument(array $payload)
+ * @method array postDocument(array $payload)
  */
 class Document implements VoPayContractEndpoint
 {
@@ -45,13 +45,13 @@ class Document implements VoPayContractEndpoint
      * @param array|null $payload
      * @param string|null $documentId
      *
-     * @return \Psr\Http\Message\StreamInterface
+     * @return array
      * @throws \DataMat\VoPay\Exceptions\InvalidEndpoint
      * @throws \DataMat\VoPay\Exceptions\InvalidPayload
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getDocument(?array $payload = [], ?string $documentId = '') : \Psr\Http\Message\StreamInterface
+    public function getDocument(?array $payload = [], ?string $documentId = '') : array
     {
-        return $this->sendRequest('get-document', $payload, ['{DocumentID}' => $documentId]);
+        return $this->singleCall('get-document', ['{DocumentID}' => $documentId], $payload);
     }
 }

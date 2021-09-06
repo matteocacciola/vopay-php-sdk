@@ -7,9 +7,9 @@ use DataMat\VoPay\Traits\Credentials;
 use DataMat\VoPay\Traits\Endpoint;
 
 /**
- * @method \Psr\Http\Message\StreamInterface generateEmbedUrl(array $payload)
- * @method \Psr\Http\Message\StreamInterface tokenInfo(array $payload)
- * @method \Psr\Http\Message\StreamInterface tokenize(?array $payload = [])
+ * @method array generateEmbedUrl(array $payload)
+ * @method array tokenInfo(array $payload)
+ * @method array tokenize(?array $payload = [])
  */
 class Iq11 implements VoPayContractEndpoint
 {

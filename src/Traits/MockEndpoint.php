@@ -5,7 +5,6 @@ namespace DataMat\VoPay\Traits;
 use DataMat\VoPay\Exceptions\InvalidEndpoint;
 use DataMat\VoPay\Requests\VoPayRequestMock;
 use DataMat\VoPay\Utilities\Utility;
-use GuzzleHttp\Psr7\Utils;
 
 trait MockEndpoint
 {
@@ -25,12 +24,12 @@ trait MockEndpoint
      * @param string $function
      * @param $args
      *
-     * @return \Psr\Http\Message\StreamInterface
+     * @return array
      * @throws InvalidEndpoint
      * @throws \DataMat\VoPay\Exceptions\InvalidPayload
      * @throws \Exception
      */
-    public function __call(string $function, $args) : \Psr\Http\Message\StreamInterface
+    public function __call(string $function, $args) : array
     {
         $endpointKey = Utility::endpointize($function);
 
@@ -60,10 +59,10 @@ trait MockEndpoint
     /**
      * @param VoPayRequestMock $requestMock
      *
-     * @return \Psr\Http\Message\StreamInterface
+     * @return array
      * @throws \Exception
      */
-    private function mock(VoPayRequestMock $requestMock) : \Psr\Http\Message\StreamInterface
+    private function mock(VoPayRequestMock $requestMock) : array
     {
         $response = $requestMock->getResponse();
 
@@ -71,6 +70,6 @@ trait MockEndpoint
             throw new \Exception();
         }
 
-        return Utils::streamFor(json_encode($response));
+        return $response;
     }
 }

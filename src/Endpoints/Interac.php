@@ -7,12 +7,12 @@ use DataMat\VoPay\Traits\Credentials;
 use DataMat\VoPay\Traits\Endpoint;
 
 /**
- * @method \Psr\Http\Message\StreamInterface moneyRequest(array $payload)
- * @method \Psr\Http\Message\StreamInterface moneyRequestTransaction(?array $payload = [])
- * @method \Psr\Http\Message\StreamInterface bulkPayout(array $payload)
- * @method \Psr\Http\Message\StreamInterface bulkPayoutTransactionRequestCancellation(array $payload)
- * @method \Psr\Http\Message\StreamInterface bulkPayoutTransaction(?array $payload = [])
- * @method \Psr\Http\Message\StreamInterface inboundTransaction(?array $payload = [])
+ * @method array moneyRequest(array $payload)
+ * @method array moneyRequestTransaction(?array $payload = [])
+ * @method array bulkPayout(array $payload)
+ * @method array bulkPayoutTransactionRequestCancellation(array $payload)
+ * @method array bulkPayoutTransaction(?array $payload = [])
+ * @method array inboundTransaction(?array $payload = [])
  */
 class Interac implements VoPayContractEndpoint
 {

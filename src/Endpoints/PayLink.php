@@ -7,16 +7,16 @@ use DataMat\VoPay\Traits\Credentials;
 use DataMat\VoPay\Traits\Endpoint;
 
 /**
- * @method \Psr\Http\Message\StreamInterface payLink(array $payload)
- * @method \Psr\Http\Message\StreamInterface payLinkBeneficiary(array $payload)
- * @method \Psr\Http\Message\StreamInterface payLinkBeneficiaries(?array $payload = [])
- * @method \Psr\Http\Message\StreamInterface payLinkBeneficiaryCancel(array $payload)
- * @method \Psr\Http\Message\StreamInterface payLinkSetAccount(array $payload)
- * @method \Psr\Http\Message\StreamInterface payLinkSetupDecline(array $payload)
- * @method \Psr\Http\Message\StreamInterface payLinkSetupTokenExpiration(array $payload)
- * @method \Psr\Http\Message\StreamInterface payLinkSetupSenderEmail(array $payload)
- * @method \Psr\Http\Message\StreamInterface payLinkSetupSendEmails(array $payload)
- * @method \Psr\Http\Message\StreamInterface payLinkSettings(?array $payload = [])
+ * @method array payLink(array $payload)
+ * @method array payLinkBeneficiary(array $payload)
+ * @method array payLinkBeneficiaries(?array $payload = [])
+ * @method array payLinkBeneficiaryCancel(array $payload)
+ * @method array payLinkSetAccount(array $payload)
+ * @method array payLinkSetupDecline(array $payload)
+ * @method array payLinkSetupTokenExpiration(array $payload)
+ * @method array payLinkSetupSenderEmail(array $payload)
+ * @method array payLinkSetupSendEmails(array $payload)
+ * @method array payLinkSettings(?array $payload = [])
  */
 class PayLink implements VoPayContractEndpoint
 {

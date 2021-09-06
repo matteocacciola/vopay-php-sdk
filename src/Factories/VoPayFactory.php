@@ -2,16 +2,16 @@
 
 namespace DataMat\VoPay\Factories;
 
-use DataMat\VoPay\Interfaces\VoPayContract;
+use DataMat\VoPay\Interfaces\VoPayContractEndpoint;
 
 class VoPayFactory
 {
     /**
      * @param string $class
      *
-     * @return VoPayContract
+     * @return VoPayContractEndpoint
      */
-    public static function build(string $class) : VoPayContract
+    public static function build(string $class) : VoPayContractEndpoint
     {
         if (!class_exists($class)) {
             throw new \BadMethodCallException();

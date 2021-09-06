@@ -44,9 +44,12 @@ trait Endpoint
      * @param string $function
      * @param $args
      *
-     * @return \Psr\Http\Message\StreamInterface
+     * @return array
+     * @throws InvalidEndpoint
+     * @throws \DataMat\VoPay\Exceptions\InvalidPayload
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function __call(string $function, $args) : \Psr\Http\Message\StreamInterface
+    public function __call(string $function, $args) : array
     {
         $endpointKey = Utility::endpointize($function);
 
@@ -95,10 +98,10 @@ trait Endpoint
     /**
      * @param VoPayRequest $request
      *
-     * @return \Psr\Http\Message\StreamInterface
+     * @return array
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    private function response(VoPayRequest $request) : \Psr\Http\Message\StreamInterface
+    private function response(VoPayRequest $request) : array
     {
         $payload = $request->getPayload() + [
                 'AccountID' => $this->accountId,
@@ -114,7 +117,7 @@ trait Endpoint
             throw new \Exception($response->getStatusCode(), $response->getReasonPhrase());
         }
 
-        return $response->getBody();
+        return json_decode((string)$response->getBody(), true);
     }
 
     /**
@@ -148,5 +151,23 @@ trait Endpoint
                     'body' => $payload
                 ];
         }
+    }
+
+    /**
+     * @param string $endpointKey
+     * @param array $replacements
+     * @param array|null $payload
+     *
+     * @return array
+     * @throws InvalidEndpoint
+     * @throws \DataMat\VoPay\Exceptions\InvalidPayload
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    protected function singleCall(string $endpointKey, array $replacements, ?array $payload = []) : array
+    {
+        $endpoint = $this->getEndpoint($endpointKey);
+        $endpoint['uri'] = $this->sanitizeUri($endpoint['uri'], $replacements);
+
+        return $this->response(new VoPayRequest($endpoint, $payload));
     }
 }

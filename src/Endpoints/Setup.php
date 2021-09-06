@@ -7,9 +7,9 @@ use DataMat\VoPay\Traits\Credentials;
 use DataMat\VoPay\Traits\Endpoint;
 
 /**
- * @method \Psr\Http\Message\StreamInterface setPlaidCredentials(array $payload)
- * @method \Psr\Http\Message\StreamInterface setFlinksCredentials(array $payload)
- * @method \Psr\Http\Message\StreamInterface setInveriteCredentials(array $payload)
+ * @method array setPlaidCredentials(array $payload)
+ * @method array setFlinksCredentials(array $payload)
+ * @method array setInveriteCredentials(array $payload)
  */
 class Setup implements VoPayContractEndpoint
 {

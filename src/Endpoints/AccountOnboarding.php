@@ -7,11 +7,11 @@ use DataMat\VoPay\Traits\Credentials;
 use DataMat\VoPay\Traits\Endpoint;
 
 /**
- * @method \Psr\Http\Message\StreamInterface submitExtendedInfo(array $payload)
- * @method \Psr\Http\Message\StreamInterface getSubmitExtendedInfoShareholderInfo(?array $payload = [])
- * @method \Psr\Http\Message\StreamInterface postSubmitExtendedInfoShareholderInfo(array $payload)
- * @method \Psr\Http\Message\StreamInterface getSubmitExtendedInfoSigningAuthorityInfo(?array $payload = [])
- * @method \Psr\Http\Message\StreamInterface businessTypes(?array $payload = [])
+ * @method array submitExtendedInfo(array $payload)
+ * @method array getSubmitExtendedInfoShareholderInfo(?array $payload = [])
+ * @method array postSubmitExtendedInfoShareholderInfo(array $payload)
+ * @method array getSubmitExtendedInfoSigningAuthorityInfo(?array $payload = [])
+ * @method array businessTypes(?array $payload = [])
  */
 class AccountOnboarding implements VoPayContractEndpoint
 {
@@ -102,15 +102,17 @@ class AccountOnboarding implements VoPayContractEndpoint
      * @param array $payload
      * @param string|null $signingAuthorityId
      *
-     * @return \Psr\Http\Message\StreamInterface
+     * @return array
      * @throws \DataMat\VoPay\Exceptions\InvalidEndpoint
      * @throws \DataMat\VoPay\Exceptions\InvalidPayload
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function postSubmitExtendedInfoSigningAuthorityInfo(
-        array $payload,
-        ?string $signingAuthorityId
-    ) : \Psr\Http\Message\StreamInterface {
-        return $this->sendRequest('get-document', $payload, ['{SigningAuthorityID}' => $signingAuthorityId]);
+    public function postSubmitExtendedInfoSigningAuthorityInfo(array $payload, ?string $signingAuthorityId) : array
+    {
+        return $this->singleCall(
+            'post-submit-extended-info-signing-authority-info',
+            ['{SigningAuthorityID}' => $signingAuthorityId],
+            $payload
+        );
     }
 }

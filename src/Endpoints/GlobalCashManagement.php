@@ -7,11 +7,11 @@ use DataMat\VoPay\Traits\Credentials;
 use DataMat\VoPay\Traits\Endpoint;
 
 /**
- * @method \Psr\Http\Message\StreamInterface currencies(?array $payload = [])
- * @method \Psr\Http\Message\StreamInterface conversion(array $payload)
- * @method \Psr\Http\Message\StreamInterface conversionTransaction(array $payload)
- * @method \Psr\Http\Message\StreamInterface conversionRate(array $payload)
- * @method \Psr\Http\Message\StreamInterface conversionQuote(array $payload)
+ * @method array currencies(?array $payload = [])
+ * @method array conversion(array $payload)
+ * @method array conversionTransaction(array $payload)
+ * @method array conversionRate(array $payload)
+ * @method array conversionQuote(array $payload)
  */
 class GlobalCashManagement implements VoPayContractEndpoint
 {
