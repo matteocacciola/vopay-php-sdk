@@ -39,7 +39,7 @@ trait MockEndpoint
         }
 
         $endpoint = $this->getEndpoint($endpointKey);
-        return $this->mock(new VoPayRequestMock($endpoint, $args[0]));
+        return $this->mock(new VoPayRequestMock($endpoint, $args[0] ?? []));
     }
 
     /**

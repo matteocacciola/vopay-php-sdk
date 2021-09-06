@@ -57,7 +57,7 @@ trait Endpoint
         $endpoint = $this->getEndpoint($endpointKey);
         $endpoint['uri'] = $this->sanitizeUri($endpoint['uri'], $args[1] ?? []);
 
-        return $this->response(new VoPayRequest($endpoint, $args[0]));
+        return $this->response(new VoPayRequest($endpoint, $args[0] ?? []));
     }
 
     /**

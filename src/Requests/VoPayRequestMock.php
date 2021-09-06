@@ -12,11 +12,11 @@ class VoPayRequestMock extends AbstractRequest implements VoPayRequestContract
 
     /**
      * @param array $endpoint
-     * @param array $payload
+     * @param array|null $payload
      *
      * @throws InvalidPayload
      */
-    public function __construct(array $endpoint, array $payload)
+    public function __construct(array $endpoint, ?array $payload = [])
     {
         $this->response = $endpoint['mock'];
         $this->required = $endpoint['required'] ?? [];

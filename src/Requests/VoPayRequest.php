@@ -15,11 +15,11 @@ class VoPayRequest extends AbstractRequest implements VoPayRequestContract
 
     /**
      * @param array $endpoint
-     * @param array $payload
+     * @param array|null $payload
      *
      * @throws InvalidPayload
      */
-    public function __construct(array $endpoint, array $payload)
+    public function __construct(array $endpoint, ?array $payload = [])
     {
         $this->method = $endpoint['method'] ?? 'GET';
         $this->uri = $endpoint['uri'];
