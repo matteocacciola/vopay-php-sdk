@@ -42,15 +42,15 @@ class Document implements VoPayContractEndpoint
     }
 
     /**
-     * @param array $payload
+     * @param array|null $payload
      * @param string|null $documentId
      *
      * @return \Psr\Http\Message\StreamInterface
-     * @throws \VoPay\Exceptions\InvalidEndpoint
-     * @throws \VoPay\Exceptions\InvalidPayload
+     * @throws \DataMat\VoPay\Exceptions\InvalidEndpoint
+     * @throws \DataMat\VoPay\Exceptions\InvalidPayload
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getDocument(array $payload, ?string $documentId = '') : \Psr\Http\Message\StreamInterface
+    public function getDocument(?array $payload = [], ?string $documentId = '') : \Psr\Http\Message\StreamInterface
     {
         return $this->sendRequest('get-document', $payload, ['{DocumentID}' => $documentId]);
     }

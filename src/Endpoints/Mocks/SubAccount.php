@@ -7,12 +7,12 @@ use DataMat\VoPay\Traits\MockEndpoint;
 
 /**
  * @method array postSubaccount(array $payload)
- * @method array getSubaccount(array $payload)
+ * @method array getSubaccount(?array $payload = [])
  * @method array subaccountSubmitExtendedInfo(array $payload)
  * @method array getSubaccountShareholderInfo(array $payload)
  * @method array postSubaccountShareholderInfo(array $payload, ?string $shareolderId = '')
- * @method array subaccountExtendedInfo(array $payload)
- * @method array subaccountSetPermissions(array $payload)
+ * @method array subaccountExtendedInfo(?array $payload = [])
+ * @method array subaccountSetPermissions(?array $payload = [])
  */
 class SubAccount implements VoPayContractMockEndpoint
 {

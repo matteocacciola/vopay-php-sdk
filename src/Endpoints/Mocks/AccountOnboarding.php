@@ -7,11 +7,11 @@ use DataMat\VoPay\Traits\MockEndpoint;
 
 /**
  * @method array submitExtendedInfo(array $payload)
- * @method array getSubmitExtendedInfoShareholderInfo(array $payload)
+ * @method array getSubmitExtendedInfoShareholderInfo(?array $payload = [])
  * @method array postSubmitExtendedInfoShareholderInfo(array $payload)
- * @method array getSubmitExtendedInfoSigningAuthorityInfo(array $payload)
- * @method array postSubmitExtendedInfoSigningAuthorityInfo(array $payload, ?string $signingAuthorityId)
- * @method array businessTypes(array $payload)
+ * @method array getSubmitExtendedInfoSigningAuthorityInfo(?array $payload = [])
+ * @method array postSubmitExtendedInfoSigningAuthorityInfo(array $payload, ?string $signingAuthorityId = '')
+ * @method array businessTypes(?array $payload = [])
  */
 class AccountOnboarding implements VoPayContractMockEndpoint
 {

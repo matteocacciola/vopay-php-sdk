@@ -8,7 +8,7 @@ use DataMat\VoPay\Traits\Endpoint;
 
 /**
  * @method \Psr\Http\Message\StreamInterface postClientAccounts(array $payload)
- * @method \Psr\Http\Message\StreamInterface getClientAccounts(array $payload)
+ * @method \Psr\Http\Message\StreamInterface getClientAccounts(?array $payload = [])
  */
 class ClientAccount implements VoPayContractEndpoint
 {

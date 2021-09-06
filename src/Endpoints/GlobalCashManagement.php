@@ -7,7 +7,7 @@ use DataMat\VoPay\Traits\Credentials;
 use DataMat\VoPay\Traits\Endpoint;
 
 /**
- * @method \Psr\Http\Message\StreamInterface currencies(array $payload)
+ * @method \Psr\Http\Message\StreamInterface currencies(?array $payload = [])
  * @method \Psr\Http\Message\StreamInterface conversion(array $payload)
  * @method \Psr\Http\Message\StreamInterface conversionTransaction(array $payload)
  * @method \Psr\Http\Message\StreamInterface conversionRate(array $payload)

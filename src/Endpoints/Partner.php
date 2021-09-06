@@ -8,8 +8,8 @@ use DataMat\VoPay\Traits\Endpoint;
 
 /**
  * @method \Psr\Http\Message\StreamInterface postAccount(array $payload)
- * @method \Psr\Http\Message\StreamInterface getAccount(array $payload)
- * @method \Psr\Http\Message\StreamInterface setPermissions(array $payload)
+ * @method \Psr\Http\Message\StreamInterface getAccount(?array $payload = [])
+ * @method \Psr\Http\Message\StreamInterface setPermissions(?array $payload = [])
  */
 class Partner implements VoPayContractEndpoint
 {

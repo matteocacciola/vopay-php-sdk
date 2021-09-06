@@ -8,16 +8,16 @@ use DataMat\VoPay\Traits\MockEndpoint;
 /**
  * @method array payLink(array $payload)
  * @method array payLinkBeneficiary(array $payload)
- * @method array payLinkBeneficiaries(array $payload)
+ * @method array payLinkBeneficiaries(?array $payload = [])
  * @method array payLinkBeneficiaryCancel(array $payload)
  * @method array payLinkSetAccount(array $payload)
  * @method array payLinkSetupDecline(array $payload)
  * @method array payLinkSetupTokenExpiration(array $payload)
  * @method array payLinkSetupSenderEmail(array $payload)
  * @method array payLinkSetupSendEmails(array $payload)
- * @method array payLinkSettings(array $payload)
+ * @method array payLinkSettings(?array $payload = [])
  */
-class PayLinkEndpoint implements VoPayContractMockEndpoint
+class PayLink implements VoPayContractMockEndpoint
 {
     use MockEndpoint;
 

@@ -8,11 +8,11 @@ use DataMat\VoPay\Traits\Endpoint;
 
 /**
  * @method \Psr\Http\Message\StreamInterface moneyRequest(array $payload)
- * @method \Psr\Http\Message\StreamInterface moneyRequestTransaction(array $payload)
+ * @method \Psr\Http\Message\StreamInterface moneyRequestTransaction(?array $payload = [])
  * @method \Psr\Http\Message\StreamInterface bulkPayout(array $payload)
  * @method \Psr\Http\Message\StreamInterface bulkPayoutTransactionRequestCancellation(array $payload)
- * @method \Psr\Http\Message\StreamInterface bulkPayoutTransaction(array $payload)
- * @method \Psr\Http\Message\StreamInterface inboundTransaction(array $payload)
+ * @method \Psr\Http\Message\StreamInterface bulkPayoutTransaction(?array $payload = [])
+ * @method \Psr\Http\Message\StreamInterface inboundTransaction(?array $payload = [])
  */
 class Interac implements VoPayContractEndpoint
 {

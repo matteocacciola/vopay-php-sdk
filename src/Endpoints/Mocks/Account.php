@@ -6,19 +6,19 @@ use DataMat\VoPay\Interfaces\VoPayContractMockEndpoint;
 use DataMat\VoPay\Traits\MockEndpoint;
 
 /**
- * @method array balance(array $payload)
+ * @method array balance(?array $payload = [])
  * @method array transactions(array $payload)
  * @method array transactionsCancel(array $payload)
- * @method array webhookUrl(array $payload)
- * @method array webhookUrlInfo(array $payload)
- * @method array webhookUrlTest(array $payload)
+ * @method array webhookUrl(?array $payload = [])
+ * @method array webhookUrlInfo(?array $payload = [])
+ * @method array webhookUrlTest(?array $payload = [])
  * @method array transferTo(array $payload)
  * @method array transferFrom(array $payload)
  * @method array postAutoBalanceTransfer(array $payload)
- * @method array getAutoBalanceTransfer(array $payload)
- * @method array autoBalanceTransferCancel(array $payload)
+ * @method array getAutoBalanceTransfer(?array $payload = [])
+ * @method array autoBalanceTransferCancel(?array $payload = [])
  * @method array postAuthorizedIps(array $payload)
- * @method array getAuthorizedIps(array $payload)
+ * @method array getAuthorizedIps(?array $payload = [])
  */
 class Account implements VoPayContractMockEndpoint
 {

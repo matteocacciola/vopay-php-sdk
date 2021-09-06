@@ -9,14 +9,14 @@ use DataMat\VoPay\Traits\Endpoint;
 /**
  * @method \Psr\Http\Message\StreamInterface payLink(array $payload)
  * @method \Psr\Http\Message\StreamInterface payLinkBeneficiary(array $payload)
- * @method \Psr\Http\Message\StreamInterface payLinkBeneficiaries(array $payload)
+ * @method \Psr\Http\Message\StreamInterface payLinkBeneficiaries(?array $payload = [])
  * @method \Psr\Http\Message\StreamInterface payLinkBeneficiaryCancel(array $payload)
  * @method \Psr\Http\Message\StreamInterface payLinkSetAccount(array $payload)
  * @method \Psr\Http\Message\StreamInterface payLinkSetupDecline(array $payload)
  * @method \Psr\Http\Message\StreamInterface payLinkSetupTokenExpiration(array $payload)
  * @method \Psr\Http\Message\StreamInterface payLinkSetupSenderEmail(array $payload)
  * @method \Psr\Http\Message\StreamInterface payLinkSetupSendEmails(array $payload)
- * @method \Psr\Http\Message\StreamInterface payLinkSettings(array $payload)
+ * @method \Psr\Http\Message\StreamInterface payLinkSettings(?array $payload = [])
  */
 class PayLink implements VoPayContractEndpoint
 {

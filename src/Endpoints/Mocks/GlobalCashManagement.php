@@ -6,7 +6,7 @@ use DataMat\VoPay\Interfaces\VoPayContractMockEndpoint;
 use DataMat\VoPay\Traits\MockEndpoint;
 
 /**
- * @method array currencies(array $payload)
+ * @method array currencies(?array $payload = [])
  * @method array conversion(array $payload)
  * @method array conversionTransaction(array $payload)
  * @method array conversionRate(array $payload)

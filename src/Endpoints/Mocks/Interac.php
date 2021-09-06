@@ -7,11 +7,11 @@ use DataMat\VoPay\Traits\MockEndpoint;
 
 /**
  * @method array moneyRequest(array $payload)
- * @method array moneyRequestTransaction(array $payload)
+ * @method array moneyRequestTransaction(?array $payload = [])
  * @method array bulkPayout(array $payload)
  * @method array bulkPayoutTransactionRequestCancellation(array $payload)
- * @method array bulkPayoutTransaction(array $payload)
- * @method array inboundTransaction(array $payload)
+ * @method array bulkPayoutTransaction(?array $payload = [])
+ * @method array inboundTransaction(?array $payload = [])
  */
 class Interac implements VoPayContractMockEndpoint
 {

@@ -9,7 +9,7 @@ use DataMat\VoPay\Traits\Endpoint;
 /**
  * @method \Psr\Http\Message\StreamInterface generateEmbedUrl(array $payload)
  * @method \Psr\Http\Message\StreamInterface tokenInfo(array $payload)
- * @method \Psr\Http\Message\StreamInterface tokenize(array $payload)
+ * @method \Psr\Http\Message\StreamInterface tokenize(?array $payload = [])
  */
 class Iq11 implements VoPayContractEndpoint
 {

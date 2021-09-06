@@ -8,7 +8,7 @@ use DataMat\VoPay\Traits\MockEndpoint;
 /**
  * @method array generateEmbedUrl(array $payload)
  * @method array tokenInfo(array $payload)
- * @method array tokenize(array $payload)
+ * @method array tokenize(?array $payload = [])
  */
 class Iq11 implements VoPayContractMockEndpoint
 {

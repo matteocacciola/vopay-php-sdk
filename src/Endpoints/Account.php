@@ -7,19 +7,19 @@ use DataMat\VoPay\Traits\Credentials;
 use DataMat\VoPay\Traits\Endpoint;
 
 /**
- * @method \Psr\Http\Message\StreamInterface balance(array $payload)
+ * @method \Psr\Http\Message\StreamInterface balance(?array $payload = [])
  * @method \Psr\Http\Message\StreamInterface transactions(array $payload)
  * @method \Psr\Http\Message\StreamInterface transactionsCancel(array $payload)
- * @method \Psr\Http\Message\StreamInterface webhookUrl(array $payload)
- * @method \Psr\Http\Message\StreamInterface webhookUrlInfo(array $payload)
- * @method \Psr\Http\Message\StreamInterface webhookUrlTest(array $payload)
+ * @method \Psr\Http\Message\StreamInterface webhookUrl(?array $payload = [])
+ * @method \Psr\Http\Message\StreamInterface webhookUrlInfo(?array $payload = [])
+ * @method \Psr\Http\Message\StreamInterface webhookUrlTest(?array $payload = [])
  * @method \Psr\Http\Message\StreamInterface transferTo(array $payload)
  * @method \Psr\Http\Message\StreamInterface transferFrom(array $payload)
  * @method \Psr\Http\Message\StreamInterface postAutoBalanceTransfer(array $payload)
- * @method \Psr\Http\Message\StreamInterface getAutoBalanceTransfer(array $payload)
- * @method \Psr\Http\Message\StreamInterface autoBalanceTransferCancel(array $payload)
+ * @method \Psr\Http\Message\StreamInterface getAutoBalanceTransfer(?array $payload = [])
+ * @method \Psr\Http\Message\StreamInterface autoBalanceTransferCancel(?array $payload = [])
  * @method \Psr\Http\Message\StreamInterface postAuthorizedIps(array $payload)
- * @method \Psr\Http\Message\StreamInterface getAuthorizedIps(array $payload)
+ * @method \Psr\Http\Message\StreamInterface getAuthorizedIps(?array $payload = [])
  */
 class Account implements VoPayContractEndpoint
 {

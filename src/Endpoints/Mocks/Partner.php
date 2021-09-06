@@ -7,8 +7,8 @@ use DataMat\VoPay\Traits\MockEndpoint;
 
 /**
  * @method array postAccount(array $payload)
- * @method array getAccount(array $payload)
- * @method array setPermissions(array $payload)
+ * @method array getAccount(?array $payload = [])
+ * @method array setPermissions(?array $payload = [])
  */
 class Partner implements VoPayContractMockEndpoint
 {

@@ -7,7 +7,7 @@ use DataMat\VoPay\Traits\MockEndpoint;
 
 /**
  * @method array postClientAccounts(array $payload)
- * @method array getClientAccounts(array $payload)
+ * @method array getClientAccounts(?array $payload = [])
  */
 class ClientAccount implements VoPayContractMockEndpoint
 {

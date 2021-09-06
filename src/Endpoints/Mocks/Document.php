@@ -7,7 +7,7 @@ use DataMat\VoPay\Traits\MockEndpoint;
 
 /**
  * @method array postDocument(array $payload)
- * @method array getDocument(array $payload, ?string $documentId = '')
+ * @method array getDocument(?array $payload = [], ?string $documentId = '')
  */
 class Document implements VoPayContractMockEndpoint
 {

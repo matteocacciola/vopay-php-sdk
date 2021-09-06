@@ -27,7 +27,7 @@ trait MockEndpoint
      *
      * @return \Psr\Http\Message\StreamInterface
      * @throws InvalidEndpoint
-     * @throws \VoPay\Exceptions\InvalidPayload
+     * @throws \DataMat\VoPay\Exceptions\InvalidPayload
      * @throws \Exception
      */
     public function __call(string $function, $args) : \Psr\Http\Message\StreamInterface
