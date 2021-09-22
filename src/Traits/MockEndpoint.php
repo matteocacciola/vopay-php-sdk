@@ -64,12 +64,6 @@ trait MockEndpoint
      */
     private function mock(VoPayRequestMock $requestMock) : array
     {
-        $response = $requestMock->getResponse();
-
-        if (!$response['Success']) {
-            throw new \Exception();
-        }
-
-        return $response;
+        return $requestMock->getResponse();
     }
 }
