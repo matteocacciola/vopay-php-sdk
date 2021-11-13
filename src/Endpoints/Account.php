@@ -10,6 +10,8 @@ use DataMat\VoPay\Traits\Endpoint;
  * @method array balance(?array $payload = [])
  * @method array transactions(array $payload)
  * @method array transactionsCancel(array $payload)
+ * @method array transactionsRefund(array $payload)
+ * @method array transactionConfirm(array $payload)
  * @method array webhookUrl(?array $payload = [])
  * @method array webhookUrlInfo(?array $payload = [])
  * @method array webhookUrlTest(?array $payload = [])
@@ -53,6 +55,16 @@ class Account implements VoPayContractEndpoint
             'transactions-cancel' => [
                 'method' => 'POST',
                 'uri' => '/transactions/cancel',
+                'required' => ['TransactionID']
+            ],
+            'transactions-refund' => [
+                'method' => 'POST',
+                'uri' => '/transactions/refund',
+                'required' => ['TransactionID']
+            ],
+            'transaction-confirm' => [
+                'method' => 'POST',
+                'uri' => '/transaction/confirm',
                 'required' => ['TransactionID']
             ],
             'webhook-url' => [

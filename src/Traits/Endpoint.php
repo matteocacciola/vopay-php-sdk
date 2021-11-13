@@ -117,7 +117,7 @@ trait Endpoint
             throw new \Exception($response->getStatusCode(), $response->getReasonPhrase());
         }
 
-        return json_decode((string)$response->getBody(), true);
+        return json_decode((string) $response->getBody(), true);
     }
 
     /**

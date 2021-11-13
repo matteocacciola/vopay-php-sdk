@@ -34,12 +34,7 @@ class ElectronicFundsTransfer implements VoPayContractMockEndpoint
                     'ErrorMessage' => '-',
                     'TransactionID' => '1122',
                 ],
-                'required' => [
-                    'AccountNumber',
-                    'FinancialInstitutionNumber',
-                    'BranchTransitNumber',
-                    'Amount',
-                ]
+                'required' => ['Amount', 'Token']
             ],
             'fund-status' => [
                 'mock' => [

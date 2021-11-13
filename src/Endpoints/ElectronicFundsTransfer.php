@@ -42,12 +42,7 @@ class ElectronicFundsTransfer implements VoPayContractEndpoint
             'fund' => [
                 'method' => 'POST',
                 'uri' => '/fund',
-                'required' => [
-                    'AccountNumber',
-                    'FinancialInstitutionNumber',
-                    'BranchTransitNumber',
-                    'Amount',
-                ]
+                'required' => ['Amount', 'Token']
             ],
             'fund-status' => [
                 'method' => 'GET',

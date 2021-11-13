@@ -9,6 +9,8 @@ use DataMat\VoPay\Traits\MockEndpoint;
  * @method array balance(?array $payload = [])
  * @method array transactions(array $payload)
  * @method array transactionsCancel(array $payload)
+ * @method array transactionsRefund(array $payload)
+ * @method array transactionConfirm(array $payload)
  * @method array webhookUrl(?array $payload = [])
  * @method array webhookUrlInfo(?array $payload = [])
  * @method array webhookUrlTest(?array $payload = [])
@@ -87,6 +89,23 @@ class Account implements VoPayContractMockEndpoint
                     'TransactionID' => '1124',
                     'TransactionStatus' => 'cancelled',
                     'Timestamp' => '2019-11-26 12:00:00',
+                ],
+                'required' => ['TransactionID']
+            ],
+            'transactions-refund' => [
+                'mock' => [
+                    'Success' => $this->success,
+                    'ErrorMessage' => '-',
+                    'TransactionID' => '1124',
+                ],
+                'required' => ['TransactionID']
+            ],
+            'transaction-confirm' => [
+                'mock' => [
+                    'Success' => $this->success,
+                    'ErrorMessage' => '-',
+                    'TransactionID' => '1124',
+                    'TransactionConfirmed' => $this->success
                 ],
                 'required' => ['TransactionID']
             ],

@@ -44,7 +44,7 @@ trait MockEndpoint
     /**
      * @param string $key
      *
-     * @return array|null
+     * @return array
      * @throws InvalidEndpoint
      */
     private function getEndpoint(string $key) : array
@@ -60,16 +60,9 @@ trait MockEndpoint
      * @param VoPayRequestMock $requestMock
      *
      * @return array
-     * @throws \Exception
      */
     private function mock(VoPayRequestMock $requestMock) : array
     {
-        $response = $requestMock->getResponse();
-
-        if (!$response['Success']) {
-            throw new \Exception();
-        }
-
-        return $response;
+        return $requestMock->getResponse();
     }
 }
