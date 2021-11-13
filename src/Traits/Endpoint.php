@@ -125,7 +125,7 @@ trait Endpoint
      */
     private function calculateSignature() : string
     {
-        $date = (new \DateTimeImmutable())->format('c');
+        $date = (new \DateTimeImmutable())->format('Y-m-d');
         return sha1($this->apiKey . $this->apiSecret . $date);
     }
 
