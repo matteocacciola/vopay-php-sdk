@@ -1,5 +1,5 @@
 {
-    "name": "matteocacciola/vopay-sdk",
+    "name": "matteocacciola/vopay-php-sdk",
     "description": "VoPay PHP SDK",
     "keywords": ["vopay", "payment"],
     "type": "project",
