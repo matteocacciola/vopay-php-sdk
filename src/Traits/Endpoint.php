@@ -15,17 +15,34 @@ trait Endpoint
     /** @var array $endpoints */
     protected $endpoints = [];
 
+    /** @var string $baseUri */
+    protected $baseUri;
+
     /** @var string $prefixUri */
     protected $prefixUri;
 
     public function __construct()
     {
         $this->endpoints = $this->getEndpoints();
+        $this->setBaseUri();
         $this->setPrefixUri();
 
         $this->client = new \GuzzleHttp\Client([
-            'base_uri' => 'https://earthnode-dev.vopay.com/api/v2/'
+            'base_uri' => $this->baseUri
         ]);
+    }
+    
+    /**
+     * @return void
+     */
+    private function setBaseUri() : void
+    {
+        $env = getenv('APP_ENV');
+        $isProduction = strpos($env, 'prod') !== false || strpos($env, 'live') !== false;
+
+        $this->baseUri = $isProduction
+            ? 'https://earthnode.vopay.com/api/v2/'
+            : 'https://earthnode-dev.vopay.com/api/v2/';
     }
 
     /**
