@@ -7,7 +7,8 @@ use DataMat\VoPay\Traits\Credentials;
 use DataMat\VoPay\Traits\Endpoint;
 
 /**
- * @method array postClientAccounts(array $payload)
+ * @method array postClientAccountsIndividual(array $payload)
+ * @method array postClientAccountsBusiness(array $payload)
  * @method array getClientAccounts(?array $payload = [])
  */
 class ClientAccount implements VoPayContractEndpoint
@@ -30,9 +31,9 @@ class ClientAccount implements VoPayContractEndpoint
     public function getEndpoints() : array
     {
         return [
-            'post-client-accounts' => [
+            'post-client-accounts-individuals' => [
                 'method' => 'POST',
-                'uri' => '/client-accounts',
+                'uri' => '/client-accounts/individual',
                 'required' => [
                     'FirstName',
                     'LastName',
@@ -41,7 +42,31 @@ class ClientAccount implements VoPayContractEndpoint
                     'City',
                     'Province',
                     'Country',
-                    'PostalCode'
+                    'PostalCode',
+                    'Currency',
+                    'DOB',
+                    'SINLastDigits'
+                ]
+            ],
+            'post-client-accounts-business' => [
+                'method' => 'POST',
+                'uri' => '/client-accounts/business',
+                'required' => [
+                    'FirstName',
+                    'LastName',
+                    'EmailAddress',
+                    'Address1',
+                    'City',
+                    'Province',
+                    'Country',
+                    'PostalCode',
+                    'Currency',
+                    'BusinessName',
+                    'BusinessNumber',
+                    'BusinessTypeID',
+                    'BusinessTypeCategoryID',
+                    'BusinessWebsite',
+                    'BusinessPhone'
                 ]
             ],
             'get-client-accounts' => [

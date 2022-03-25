@@ -6,7 +6,8 @@ use DataMat\VoPay\Interfaces\VoPayContractMockEndpoint;
 use DataMat\VoPay\Traits\MockEndpoint;
 
 /**
- * @method array postClientAccounts(array $payload)
+ * @method array postClientAccountsIndividual(array $payload)
+ * @method array postClientAccountsBusiness(array $payload)
  * @method array getClientAccounts(?array $payload = [])
  */
 class ClientAccount implements VoPayContractMockEndpoint
@@ -19,7 +20,7 @@ class ClientAccount implements VoPayContractMockEndpoint
     public function getMock() : array
     {
         return [
-            'post-client-accounts' => [
+            'post-client-accounts-individuals' => [
                 'mock' => [
                     'Success' => $this->success,
                     'ErrorMessage' => '-',
@@ -33,7 +34,34 @@ class ClientAccount implements VoPayContractMockEndpoint
                     'City',
                     'Province',
                     'Country',
-                    'PostalCode'
+                    'PostalCode',
+                    'Currency',
+                    'DOB',
+                    'SINLastDigits'
+                ]
+            ],
+            'post-client-accounts-business' => [
+                'mock' => [
+                    'Success' => $this->success,
+                    'ErrorMessage' => '-',
+                    'ClientAccountID' => 'ClientAccount1'
+                ],
+                'required' => [
+                    'FirstName',
+                    'LastName',
+                    'EmailAddress',
+                    'Address1',
+                    'City',
+                    'Province',
+                    'Country',
+                    'PostalCode',
+                    'Currency',
+                    'BusinessName',
+                    'BusinessNumber',
+                    'BusinessTypeID',
+                    'BusinessTypeCategoryID',
+                    'BusinessWebsite',
+                    'BusinessPhone'
                 ]
             ],
             'get-client-accounts' => [
