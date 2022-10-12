@@ -18,7 +18,7 @@ use DataMat\VoPay\Utilities\Utility;
  * @method \DataMat\VoPay\Endpoints\Interac interac()
  * @method \DataMat\VoPay\Endpoints\Iq11 iq11()
  * @method \DataMat\VoPay\Endpoints\Partner partner()
- * @method \DataMat\VoPay\Endpoints\PayLink payLink()
+ * @method \DataMat\VoPay\Endpoints\Paylink payLink()
  * @method \DataMat\VoPay\Endpoints\Setup setup()
  * @method \DataMat\VoPay\Endpoints\SubAccount subAccount()
  * @method \DataMat\VoPay\Endpoints\VisaDirect visaDirect()
