@@ -10,6 +10,7 @@ use DataMat\VoPay\Traits\Endpoint;
  * @method array setPlaidCredentials(array $payload)
  * @method array setFlinksCredentials(array $payload)
  * @method array setInveriteCredentials(array $payload)
+ * @method array setGlobalPayCredentials(array $payload)
  */
 class Setup implements VoPayContractEndpoint
 {
@@ -45,6 +46,11 @@ class Setup implements VoPayContractEndpoint
                 'method' => 'POST',
                 'uri' => '/set-inverite-credentials',
                 'required' => ['InveriteAPIKey', 'InveriteUrl']
+            ],
+            'set-global-pay-credentials' => [
+                'method' => 'POST',
+                'uri' => '/set-global-pay-credentials',
+                'required' => ['GlobalPayAppID', 'GlobalPaySharedSecret']
             ],
         ];
     }

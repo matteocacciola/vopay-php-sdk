@@ -9,6 +9,7 @@ use DataMat\VoPay\Traits\MockEndpoint;
  * @method array setPlaidCredentials(array $payload)
  * @method array setFlinksCredentials(array $payload)
  * @method array setInveriteCredentials(array $payload)
+ * @method array setGlobalPayCredentials(array $payload)
  */
 class Setup implements VoPayContractMockEndpoint
 {
@@ -47,6 +48,16 @@ class Setup implements VoPayContractMockEndpoint
                     'InveriteUrl' => '{InveriteUrl}',
                 ],
                 'required' => ['InveriteAPIKey', 'InveriteUrl']
+            ],
+            'set-global-pay-credentials' => [
+                'mock' => [
+                    'Success' => $this->success,
+                    'ErrorMessage' => '-',
+                    'GlobalPayAppID' => '{GlobalPayAppID}',
+                    'GlobalPaySharedSecret' => '{GlobalPaySharedSecret}',
+                    'Status' => 'Updated',
+                ],
+                'required' => ['GlobalPayAppID', 'GlobalPaySharedSecret']
             ],
         ];
     }
