@@ -8,7 +8,10 @@ use DataMat\VoPay\Traits\MockEndpoint;
 /**
  * @method array postAccount(array $payload)
  * @method array getAccount(?array $payload = [])
+ * @method array accountBusinessCase(array $payload)
  * @method array setPermissions(?array $payload = [])
+ * @method array billingPackages(?array $payload = [])
+ * @method array invoiceDetails(?array $payload = [])
  */
 class Partner implements VoPayContractMockEndpoint
 {
@@ -97,12 +100,65 @@ class Partner implements VoPayContractMockEndpoint
                     ],
                 ],
             ],
+            'account-business-case' => [
+                'mock' => [
+                    'Success' => $this->success,
+                    'ErrorMessage' => '-',
+                ],
+                'required' => [
+                    'VopayAccountID',
+                    'BusinessName',
+                    'BusinessEmail',
+                    'DoingBusinessAs',
+                    'WebsiteURL',
+                    'BusinessModel',
+                    'MSB',
+                    'NumberofYearsInBusiness',
+                ],
+            ],
             'set-permissions' => [
                 'mock' => [
                     'Success' => $this->success,
                     'ErrorMessage' => '-'
                 ],
             ],
+            'billing-packages' => [
+                'mock' => [
+                    'Success' => $this->success,
+                    'ErrorMessage' => '-',
+                    'BillingPackages' => [
+                        0 => [
+                            'PackageID' => '1234',
+                            'PackageName' => 'Enterprise Billing Package',
+                            'DateAdded' => '2019-11-03 01:00:00',
+                            'CreatedBy' => 'ABC Partner',
+                            'Currency' => 'CAD',
+                        ],
+                    ],
+                ],
+            ],
+            'invoice-details' => [
+                'mock' => [
+                    'Success' => $this->success,
+                    'ErrorMessage' => '-',
+                    'InvoicePeriod' => [
+                        'FromDate' => '2021-10-01',
+                        'ToDate' => '2021-10-31',
+                    ],
+                    'InvoiceDetails' => [
+                        'AccountID' => [
+                            'Currency' => [
+                                'Service' => [
+                                    'description' => 'EFT Funding Transaction fee',
+                                    'quantity' => '50',
+                                    'rate' => '1.50',
+                                    'amount' => '75',
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ]
         ];
     }
 }

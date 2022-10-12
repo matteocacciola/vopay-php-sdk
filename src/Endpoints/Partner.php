@@ -9,7 +9,10 @@ use DataMat\VoPay\Traits\Endpoint;
 /**
  * @method array postAccount(array $payload)
  * @method array getAccount(?array $payload = [])
+ * @method array accountBusinessCase(array $payload)
  * @method array setPermissions(?array $payload = [])
+ * @method array billingPackages(?array $payload = [])
+ * @method array invoiceDetails(?array $payload = [])
  */
 class Partner implements VoPayContractEndpoint
 {
@@ -40,9 +43,31 @@ class Partner implements VoPayContractEndpoint
                 'method' => 'GET',
                 'uri' => '/account'
             ],
+            'account-business-case' => [
+                'method' => 'POST',
+                'uri' => '/account/business-case',
+                'required' => [
+                    'VopayAccountID',
+                    'BusinessName',
+                    'BusinessEmail',
+                    'DoingBusinessAs',
+                    'WebsiteURL',
+                    'BusinessModel',
+                    'MSB',
+                    'NumberofYearsInBusiness',
+                ],
+            ],
             'set-permissions' => [
                 'method' => 'POST',
                 'uri' => '/account/set-permissions'
+            ],
+            'billing-packages' => [
+                'method' => 'GET',
+                'uri' => '/billing-packages'
+            ],
+            'invoice-details' => [
+                'method' => 'GET',
+                'uri' => '/invoice-details'
             ],
         ];
     }
