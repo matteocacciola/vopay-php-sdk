@@ -7,6 +7,8 @@ use DataMat\VoPay\Traits\MockEndpoint;
 
 /**
  * @method array balance(?array $payload = [])
+ * @method array fundMyAccount(array $payload)
+ * @method array withdrawMyAccount(array $payload)
  * @method array transactions(array $payload)
  * @method array transactionsCancel(array $payload)
  * @method array transactionsRefund(array $payload)
@@ -21,6 +23,8 @@ use DataMat\VoPay\Traits\MockEndpoint;
  * @method array autoBalanceTransferCancel(?array $payload = [])
  * @method array postAuthorizedIps(array $payload)
  * @method array getAuthorizedIps(?array $payload = [])
+ * @method array setMyBankAccount(array $payload)
+ * @method array setDefaultPaymentMethod(array $payload)
  */
 class Account implements VoPayContractMockEndpoint
 {
@@ -43,6 +47,22 @@ class Account implements VoPayContractMockEndpoint
                     'AvailableFunds' => '18000.00',
                     'Currency' => 'CAD',
                 ],
+            ],
+            'fund-my-account' => [
+                'mock' => [
+                    'Success' => $this->success,
+                    'ErrorMessage' => '-',
+                    'TransactionID' => '5918',
+                ],
+                'required' => ['Amount']
+            ],
+            'withdraw-my-account' => [
+                'mock' => [
+                    'Success' => $this->success,
+                    'ErrorMessage' => '-',
+                    'TransactionID' => '5918',
+                ],
+                'required' => ['Amount']
             ],
             'transactions' => [
                 'mock' => [
@@ -210,6 +230,22 @@ class Account implements VoPayContractMockEndpoint
                     'ErrorMessage' => '-',
                     'AuthorizedIPs' => '127.0.0.1, 0.0.0.0',
                 ],
+            ],
+            'set-my-bank-account' => [
+                'mock' => [
+                    'Success' => $this->success,
+                    'ErrorMessage' => '-',
+                    'Token' => '1234567aeiou',
+                    'IsDefault' => false,
+                ],
+                'required' => ['Token']
+            ],
+            'set-default-payment-method' => [
+                'mock' => [
+                    'Success' => $this->success,
+                    'ErrorMessage' => '-',
+                ],
+                'required' => ['PaymentMethod']
             ],
         ];
     }

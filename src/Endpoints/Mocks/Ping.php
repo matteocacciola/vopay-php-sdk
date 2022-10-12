@@ -7,7 +7,7 @@ use DataMat\VoPay\Traits\MockEndpoint;
 
 /**
  * @method array ping(?array $payload = [])
- * @method array authPing(array $payload)
+ * @method array authPing(?array $payload = [])
  */
 class Ping implements VoPayContractMockEndpoint
 {

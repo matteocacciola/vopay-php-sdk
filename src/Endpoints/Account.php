@@ -8,6 +8,8 @@ use DataMat\VoPay\Traits\Endpoint;
 
 /**
  * @method array balance(?array $payload = [])
+ * @method array fundMyAccount(array $payload)
+ * @method array withdrawMyAccount(array $payload)
  * @method array transactions(array $payload)
  * @method array transactionsCancel(array $payload)
  * @method array transactionsRefund(array $payload)
@@ -22,6 +24,8 @@ use DataMat\VoPay\Traits\Endpoint;
  * @method array autoBalanceTransferCancel(?array $payload = [])
  * @method array postAuthorizedIps(array $payload)
  * @method array getAuthorizedIps(?array $payload = [])
+ * @method array setMyBankAccount(array $payload)
+ * @method array setDefaultPaymentMethod(array $payload)
  */
 class Account implements VoPayContractEndpoint
 {
@@ -46,6 +50,16 @@ class Account implements VoPayContractEndpoint
             'balance' => [
                 'method' => 'GET',
                 'uri' => '/balance',
+            ],
+            'fund-my-account' => [
+                'method' => 'POST',
+                'uri' => '/fund-my-account',
+                'required' => ['Amount']
+            ],
+            'withdraw-my-account' => [
+                'method' => 'POST',
+                'uri' => '/withdraw-my-account',
+                'required' => ['Amount']
             ],
             'transactions' => [
                 'method' => 'GET',
@@ -117,6 +131,16 @@ class Account implements VoPayContractEndpoint
             'get-authorized-ips' => [
                 'method' => 'GET',
                 'uri' => '/authorized-ips',
+            ],
+            'set-my-bank-account' => [
+                'method' => 'POST',
+                'uri' => '/set-my-bank-account',
+                'required' => ['Token']
+            ],
+            'set-default-payment-method' => [
+                'method' => 'POST',
+                'uri' => '/set-default-payment-method',
+                'required' => ['PaymentMethod']
             ],
         ];
     }

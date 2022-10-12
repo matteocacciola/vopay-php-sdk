@@ -8,7 +8,7 @@ use DataMat\VoPay\Traits\Endpoint;
 
 /**
  * @method array ping(?array $payload = [])
- * @method array authPing(array $payload)
+ * @method array authPing(?array $payload = [])
  */
 class Ping implements VoPayContractEndpoint
 {
