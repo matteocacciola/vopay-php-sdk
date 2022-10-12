@@ -46,7 +46,7 @@ class Ach implements VoPayContractEndpoint
                     'ZipCode',
                     'ABARoutingNumber',
                     'AccountNumber',
-                    'Amount'
+                    'Amount',
                 ],
             ],
             'void' => [
