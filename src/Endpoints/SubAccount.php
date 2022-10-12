@@ -7,12 +7,9 @@ use DataMat\VoPay\Traits\Credentials;
 use DataMat\VoPay\Traits\Endpoint;
 
 /**
- * @method array postSubaccount(array $payload)
- * @method array getSubaccount(?array $payload = [])
- * @method array subaccountSubmitExtendedInfo(array $payload)
- * @method array getSubaccountShareholderInfo(array $payload)
- * @method array subaccountExtendedInfo(?array $payload = [])
- * @method array subaccountSetPermissions(?array $payload = [])
+ * @method array post(array $payload)
+ * @method array get(?array $payload = [])
+ * @method array setPermissions(?array $payload = [])
  */
 class SubAccount implements VoPayContractEndpoint
 {
@@ -23,7 +20,7 @@ class SubAccount implements VoPayContractEndpoint
      */
     public function setPrefixUri() : VoPayContractEndpoint
     {
-        $this->prefixUri = 'account';
+        $this->prefixUri = 'account/subaccount';
 
         return $this;
     }
@@ -34,58 +31,18 @@ class SubAccount implements VoPayContractEndpoint
     public function getEndpoints() : array
     {
         return [
-            'post-subaccount' => [
+            'post' => [
                 'method' => 'POST',
-                'uri' => '/subaccount',
+                'uri' => '',
                 'required' => ['LegalBusinessName', 'SubaccountID', 'EmailAddress', 'SendWelcomeEmail']
             ],
-            'get-subaccount' => [
+            'get' => [
                 'method' => 'GET',
-                'uri' => '/subaccount',
+                'uri' => '',
             ],
-            'subaccount-submit-extended-info' => [
+            'set-permissions' => [
                 'method' => 'POST',
-                'uri' => '/subaccount/submit-extended-info',
-                'required' => [
-                    'OriginatorName',
-                    'Address',
-                    'City',
-                    'Province',
-                    'PostalCode',
-                    'Country',
-                    'PhoneNumber',
-                    'EmailAddress',
-                    'NatureofBusiness',
-                    'OrganizationalType',
-                    'RegistrationNumber',
-                    'RegistrationProvince',
-                    'DateofIncorporation',
-                    'AuthorizedFullLegalName',
-                    'AuthorizedOccupation'
-                ]
-            ],
-            'get-subaccount-shareholder-info' => [
-                'method' => 'GET',
-                'uri' => '/subaccount/shareholder-info',
-                'required' => ['Token']
-            ],
-            'post-subaccount-shareholder-info' => [
-                'method' => 'POST',
-                'uri' => '/subaccount/shareholder-info/{ShareolderID}',
-                'required' => [
-                    'ShareholderFullName',
-                    'ShareholderOwnership',
-                    'ShareholderOccupation',
-                    'ShareholderHomeAddress'
-                ]
-            ],
-            'subaccount-extended-info' => [
-                'method' => 'GET',
-                'uri' => '/subaccount/extended-info',
-            ],
-            'subaccount-set-permissions' => [
-                'method' => 'POST',
-                'uri' => '/subaccount/set-permissions',
+                'uri' => '/set-permissions',
             ]
         ];
     }
