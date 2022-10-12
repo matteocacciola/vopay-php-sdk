@@ -10,6 +10,7 @@ use DataMat\VoPay\Traits\Endpoint;
  * @method array generateEmbedUrl(array $payload)
  * @method array tokenInfo(array $payload)
  * @method array tokenize(?array $payload = [])
+ * @method array transactions(array $payload)
  */
 class Iq11 implements VoPayContractEndpoint
 {
@@ -44,6 +45,11 @@ class Iq11 implements VoPayContractEndpoint
             'tokenize' => [
                 'method' => 'POST',
                 'uri' => '/tokenize',
+            ],
+            'transactions' => [
+                'method' => 'GET',
+                'uri' => '/transactions',
+                'required' => ['Token']
             ],
         ];
     }
