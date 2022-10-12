@@ -16,6 +16,9 @@ use DataMat\VoPay\Traits\MockEndpoint;
  * @method array withdraw(array $payload)
  * @method array withdrawTransaction(array $payload)
  * @method array withdrawStatus(array $payload)
+ * @method array withdrawSchedule(array $payload)
+ * @method array withdrawScheduleCancel(array $payload)
+ * @method array withdrawScheduleEdit(array $payload)
  * @method array failures(array $payload)
  */
 class ElectronicFundsTransfer implements VoPayContractMockEndpoint
@@ -309,6 +312,45 @@ class ElectronicFundsTransfer implements VoPayContractMockEndpoint
                     'Timestamp' => '2019-11-02 12:00:00',
                 ],
                 'required' => ['TransactionID']
+            ],
+            'withdraw-schedule' => [
+                'mock' => [
+                    'Success' => $this->success,
+                    'ErrorMessage' => '-',
+                    'Amount' => '200.00',
+                    'ScheduledTransactionID' => '1122',
+                    'Frequency' => 'single',
+                    'Description' => '-',
+                    'ScheduleStartDate' => '2020-01-01',
+                    'Status' => 'in progress',
+                ],
+                'required' => [
+                    'Amount',
+                    'Frequency',
+                    'NameOfFrequency',
+                    'ScheduleStartDate',
+                    'ScheduleEndDate',
+                    'EndingAfterPayments',
+                    'Description',
+                    'AccountNumber',
+                    'FinancialInstitutionNumber',
+                    'BranchTransitNumber'
+                ]
+            ],
+            'withdraw-schedule-cancel' => [
+                'mock' => [
+                    'Success' => $this->success,
+                    'ErrorMessage' => '-',
+                    'Status' => 'cancelled',
+                ],
+                'required' => ['ScheduledTransactionID']
+            ],
+            'withdraw-schedule-edit' => [
+                'mock' => [
+                    'Success' => $this->success,
+                    'ErrorMessage' => '-',
+                ],
+                'required' => ['ScheduledTransactionID', 'UpcomingPayment']
             ],
             'failures' => [
                 'mock' => [

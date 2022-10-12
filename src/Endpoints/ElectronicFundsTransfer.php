@@ -17,6 +17,9 @@ use DataMat\VoPay\Traits\Endpoint;
  * @method array withdraw(array $payload)
  * @method array withdrawTransaction(array $payload)
  * @method array withdrawStatus(array $payload)
+ * @method array withdrawSchedule(array $payload)
+ * @method array withdrawScheduleCancel(array $payload)
+ * @method array withdrawScheduleEdit(array $payload)
  * @method array failures(array $payload)
  */
 class ElectronicFundsTransfer implements VoPayContractEndpoint
@@ -100,6 +103,36 @@ class ElectronicFundsTransfer implements VoPayContractEndpoint
                 'uri' => '/withdraw/status',
                 'required' => ['TransactionID']
             ],
+            'withdraw-schedule' => [
+                'method' => 'POST',
+                'uri' => '/withdraw/schedule',
+                'required' => [
+                    'Amount',
+                    'Frequency',
+                    'NameOfFrequency',
+                    'ScheduleStartDate',
+                    'ScheduleEndDate',
+                    'EndingAfterPayments',
+                    'Description',
+                    'AccountNumber',
+                    'FinancialInstitutionNumber',
+                    'BranchTransitNumber'
+                ]
+            ],
+            'withdraw-schedule-cancel' => [
+                'method' => 'POST',
+                'uri' => '/withdraw/schedule/cancel',
+                'required' => ['ScheduledTransactionID']
+            ],
+            'withdraw-schedule-edit' => [
+                'method' => 'POST',
+                'uri' => '/withdraw/schedule/edit',
+                'required' => ['ScheduledTransactionID', 'UpcomingPayment']
+            ],
+
+
+
+
             'failures' => [
                 'method' => 'GET',
                 'uri' => '/failures',
