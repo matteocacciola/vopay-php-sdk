@@ -6,9 +6,18 @@ use DataMat\VoPay\Interfaces\VoPayContractMockEndpoint;
 use DataMat\VoPay\Traits\MockEndpoint;
 
 /**
- * @method array postClientAccountsIndividual(array $payload)
- * @method array postClientAccountsBusiness(array $payload)
- * @method array getClientAccounts(?array $payload = [])
+ * @method array individual(array $payload)
+ * @method array business(array $payload)
+ * @method array get(?array $payload = [])
+ * @method array balance(array $payload)
+ * @method array edit(array $payload)
+ * @method array delete(array $payload)
+ * @method array deactivate(array $payload)
+ * @method array activate(array $payload)
+ * @method array fundTransfer(array $payload)
+ * @method array transferWithdraw(array $payload)
+ * @method array fundTransferWithdraw(array $payload)
+ * @method array generateEmbedUrl(array $payload)
  */
 class ClientAccount implements VoPayContractMockEndpoint
 {
@@ -20,7 +29,7 @@ class ClientAccount implements VoPayContractMockEndpoint
     public function getMock() : array
     {
         return [
-            'post-client-accounts-individuals' => [
+            'individual' => [
                 'mock' => [
                     'Success' => $this->success,
                     'ErrorMessage' => '-',
@@ -37,14 +46,14 @@ class ClientAccount implements VoPayContractMockEndpoint
                     'PostalCode',
                     'Currency',
                     'DOB',
-                    'SINLastDigits'
-                ]
+                    'SINLastDigits',
+                ],
             ],
-            'post-client-accounts-business' => [
+            'business' => [
                 'mock' => [
                     'Success' => $this->success,
                     'ErrorMessage' => '-',
-                    'ClientAccountID' => 'ClientAccount1'
+                    'ClientAccountID' => 'ClientAccount1',
                 ],
                 'required' => [
                     'FirstName',
@@ -61,10 +70,26 @@ class ClientAccount implements VoPayContractMockEndpoint
                     'BusinessTypeID',
                     'BusinessTypeCategoryID',
                     'BusinessWebsite',
-                    'BusinessPhone'
-                ]
+                    'BusinessPhone',
+                ],
             ],
-            'get-client-accounts' => [
+            'receive-only' => [
+                'mock' => [
+                    'Success' => $this->success,
+                    'ErrorMessage' => '-',
+                    'ClientAccountID' => 'ClientAccount1',
+                ],
+                'required' => [
+                    'EmailAddress',
+                    'Address1',
+                    'City',
+                    'Province',
+                    'Country',
+                    'PostalCode',
+                    'Currency',
+                ],
+            ],
+            'get' => [
                 'mock' => [
                     'Success' => $this->success,
                     'ErrorMessage' => '-',
@@ -97,6 +122,90 @@ class ClientAccount implements VoPayContractMockEndpoint
                         ],
                     ],
                 ],
+            ],
+            'balance' => [
+                'mock' => [
+                    'Success' => $this->success,
+                    'ErrorMessage' => '-',
+                    'AccountBalance' => '20000.00',
+                    'PendingFunds' => '5540.24',
+                    'SecurityDeposit' => '50000.00',
+                    'AvailableFunds' => '18000.00',
+                    'Currency' => 'CAD',
+                ],
+                'required' => ['ClientAccountID'],
+            ],
+            'edit' => [
+                'mock' => [
+                    'Success' => $this->success,
+                    'ErrorMessage' => '-',
+                ],
+                'required' => ['ClientAccountID'],
+            ],
+            'delete' => [
+                'mock' => [
+                    'Success' => $this->success,
+                    'ErrorMessage' => '-',
+                    'ClientAccountID' => '1122',
+                    'IsActive' => '0',
+                    'DateDeleted' => '2021-11-03 01:00:00',
+                ],
+                'required' => ['ClientAccountID'],
+            ],
+            'deactivate' => [
+                'mock' => [
+                    'Success' => $this->success,
+                    'ErrorMessage' => '-',
+                    'ClientAccountID' => '1122',
+                    'IsActive' => '0',
+                ],
+                'required' => ['ClientAccountID'],
+            ],
+            'activate' => [
+                'mock' => [
+                    'Success' => $this->success,
+                    'ErrorMessage' => '-',
+                    'ClientAccountID' => '1122',
+                    'IsActive' => '1',
+                ],
+                'required' => ['ClientAccountID'],
+            ],
+            'fund-transfer' => [
+                'mock' => [
+                    'Success' => $this->success,
+                    'ErrorMessage' => '-',
+                    'FundingTransactionID' => '1122',
+                    'AccountTransferID' => '2244',
+                ],
+                'required' => ['DebitorClientAccountID', 'RecipientClientAccountID', 'Amount'],
+            ],
+            'transfer-withdraw' => [
+                'mock' => [
+                    'Success' => $this->success,
+                    'ErrorMessage' => '-',
+                    'WithdrawTransactionID' => '1122',
+                    'AccountTransferID' => '2244',
+                ],
+                'required' => ['DebitorClientAccountID', 'RecipientClientAccountID', 'Amount'],
+            ],
+            'fund-transfer-withdraw' => [
+                'mock' => [
+                    'Success' => $this->success,
+                    'ErrorMessage' => '-',
+                    'FundingTransactionID' => '1122',
+                    'WithdrawTransactionID' => '1122',
+                    'AccountTransferID' => '2244',
+                ],
+                'required' => ['DebitorClientAccountID', 'RecipientClientAccountID', 'Amount'],
+            ],
+            'generate-embed-url' => [
+                'mock' => [
+                    'Success' => $this->success,
+                    'ErrorMessage' => '-',
+                    'OnboardingLink' => 'https://client-account.vopay.com?Token=1234568&ClientAccountType=individual',
+                    'EmailSent' => 'true',
+                ],
+                'required' => ['ClientAccountType'],
             ],
         ];
     }

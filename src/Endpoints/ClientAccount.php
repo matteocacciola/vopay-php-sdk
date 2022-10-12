@@ -7,9 +7,18 @@ use DataMat\VoPay\Traits\Credentials;
 use DataMat\VoPay\Traits\Endpoint;
 
 /**
- * @method array postClientAccountsIndividual(array $payload)
- * @method array postClientAccountsBusiness(array $payload)
- * @method array getClientAccounts(?array $payload = [])
+ * @method array individual(array $payload)
+ * @method array business(array $payload)
+ * @method array get(?array $payload = [])
+ * @method array balance(array $payload)
+ * @method array edit(array $payload)
+ * @method array delete(array $payload)
+ * @method array deactivate(array $payload)
+ * @method array activate(array $payload)
+ * @method array fundTransfer(array $payload)
+ * @method array transferWithdraw(array $payload)
+ * @method array fundTransferWithdraw(array $payload)
+ * @method array generateEmbedUrl(array $payload)
  */
 class ClientAccount implements VoPayContractEndpoint
 {
@@ -20,7 +29,7 @@ class ClientAccount implements VoPayContractEndpoint
      */
     public function setPrefixUri() : VoPayContractEndpoint
     {
-        $this->prefixUri = 'account';
+        $this->prefixUri = 'account/client-accounts';
 
         return $this;
     }
@@ -31,9 +40,9 @@ class ClientAccount implements VoPayContractEndpoint
     public function getEndpoints() : array
     {
         return [
-            'post-client-accounts-individuals' => [
+            'individual' => [
                 'method' => 'POST',
-                'uri' => '/client-accounts/individual',
+                'uri' => '/individual',
                 'required' => [
                     'FirstName',
                     'LastName',
@@ -48,9 +57,9 @@ class ClientAccount implements VoPayContractEndpoint
                     'SINLastDigits'
                 ]
             ],
-            'post-client-accounts-business' => [
+            'business' => [
                 'method' => 'POST',
-                'uri' => '/client-accounts/business',
+                'uri' => '/business',
                 'required' => [
                     'FirstName',
                     'LastName',
@@ -67,11 +76,69 @@ class ClientAccount implements VoPayContractEndpoint
                     'BusinessTypeCategoryID',
                     'BusinessWebsite',
                     'BusinessPhone'
-                ]
+                ],
             ],
-            'get-client-accounts' => [
+            'receive-only' => [
+                'method' => 'POST',
+                'uri' => '/receive-only',
+                'required' => [
+                    'EmailAddress',
+                    'Address1',
+                    'City',
+                    'Province',
+                    'Country',
+                    'PostalCode',
+                    'Currency',
+                ],
+            ],
+            'get' => [
                 'method' => 'GET',
-                'uri' => '/client-accounts',
+                'uri' => '',
+            ],
+            'balance' => [
+                'method' => 'GET',
+                'uri' => '/balance',
+                'required' => ['ClientAccountID'],
+            ],
+            'edit' => [
+                'method' => 'POST',
+                'uri' => '/edit',
+                'required' => ['ClientAccountID'],
+            ],
+            'delete' => [
+                'method' => 'POST',
+                'uri' => '/delete',
+                'required' => ['ClientAccountID'],
+            ],
+            'deactivate' => [
+                'method' => 'POST',
+                'uri' => '/deactivate',
+                'required' => ['ClientAccountID'],
+            ],
+            'activate' => [
+                'method' => 'POST',
+                'uri' => '/activate',
+                'required' => ['ClientAccountID'],
+            ],
+            'fund-transfer' => [
+                'method' => 'POST',
+                'uri' => '/fund-transfer',
+                'required' => ['DebitorClientAccountID', 'RecipientClientAccountID', 'Amount'],
+            ],
+            'transfer-withdraw' => [
+                'method' => 'POST',
+                'uri' => '/transfer-withdraw',
+                'required' => ['DebitorClientAccountID', 'RecipientClientAccountID', 'Amount'],
+            ],
+            'fund-transfer-withdraw' => [
+                'method' => 'POST',
+                'uri' => '/fund-transfer-withdraw',
+                'required' => ['DebitorClientAccountID', 'RecipientClientAccountID', 'Amount'],
+            ],
+            'generate-embed-url' => [
+                'method' => 'POST',
+                'uri' => '/generate-embed-url',
+                'required' => ['ClientAccountType'],
             ],
         ];
     }
